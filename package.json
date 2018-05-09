@@ -1,0 +1,22 @@
+{
+  "name": "0505",
+  "version": "1.0.0",
+  "description": "Store-front template using JSON data. ",
+  "main": "server.js",
+  "engines": {
+    "node": "8.10.0"
+  },
+  "scripts": {
+    "test": "mocha || true",
+    "start": "node server.js"
+  },
+  "author": "Jhovahn Gibbs",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1"
+  }
+}
