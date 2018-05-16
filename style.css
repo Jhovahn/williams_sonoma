@@ -50,7 +50,8 @@ body {
 .modal {
   display: none;
   position: fixed;
-  margin: auto;
+  margin: 0 auto;
+  width: 50%;
   z-index: 1;
   left: 0;
   top: 0;
@@ -58,30 +59,9 @@ body {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-  position: relative;
-  top: 100px;
-  left: 100px;
-  max-width: 900px;
-  margin: auto;
-  display: grid;
-  grid-auto-columns: 1fr 1fr 1fr;
-  align-items: center;
+  text-align: center;
   justify-content: center;
-  top: 300px;
-}
-
-.modal-content > div > img {
-  height: 250px;
-}
-
-.main-img img {
-  width: 3fr;
-}
-.imgs img {
-  width: 1fr;
+  align-items: center;
 }
 
 .menu {
@@ -111,6 +91,10 @@ a {
   border-radius: 5px;
 }
 
+#output li {
+  list-style-type: none;
+}
+
 .list {
   justify-content: center;
   display: grid;
@@ -118,12 +102,81 @@ a {
   grid-template-columns: repeat(auto-fill, minmax(200px, 320px));
 }
 
-#output li {
-  list-style-type: none;
+.modal-content {
+  margin: 0 auto;
+  width: 50%;
+  display: grid;
+  grid-column: 3/6;
+  padding: 100px;
+  justify-content: center;
 }
 
-#button {
-  height: 30px;
-  width: 70px;
-  margin: 20px;
+.carousel {
+}
+
+.arrow {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  background-color: black;
+  margin-top: 36.5%;
+  left: 60px;
+}
+
+#arrow-right {
+  background-color: red;
+}
+
+.modal-content > div > img {
+  height: 250px;
+}
+
+.carousel {
+  width: 363px;
+  height: 363px;
+  overflow: hidden;
+  position: relative;
+}
+
+.inner {
+  display: flex;
+  position: absolute;
+  left: 0;
+  transition: left 0.25 ease-out;
+}
+
+.next::after,
+.prev::after {
+  content: '>';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  background-color: white;
+  width: 1em;
+  height: 1em;
+  font-size: 20px;
+  font-family: sans-serif;
+  line-height: 1em;
+  padding: 1px;
+  font-weight: bold;
+  box-sizing: border-box;
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+.next:hover::after,
+.prev:hover::after {
+  opacity: 1;
+}
+
+.prev::after {
+  left: 0;
+  content: '<';
+}
+
+.close {
+  cursor: pointer;
+  margin-left: 300px;
+  padding-bottom: 10px;
+  color: white;
 }

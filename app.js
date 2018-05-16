@@ -2,6 +2,39 @@ let img0 = document.getElementById('img0');
 let img1 = document.getElementById('img1');
 let img2 = document.getElementById('img2');
 let img3 = document.getElementById('img3');
+let close = document.getElementsByClassName('close')[0];
+let carousels = document.getElementsByClassName('carousel');
+
+[].forEach.call(carousels, function(c) {
+  let next = c.getElementsByClassName('next')[0];
+  let prev = c.getElementsByClassName('prev')[0];
+  let inner = c.getElementsByClassName('inner')[0];
+  let imgs = inner.getElementsByClassName('img');
+  let currentImageIndex = 0;
+  let width = 363;
+
+  function switching() {
+    inner.style.left = -width * currentImageIndex + 'px';
+  }
+
+  next.addEventListener('click', function() {
+    currentImageIndex++;
+
+    if (currentImageIndex >= imgs.length) {
+      currentImageIndex = 0;
+    }
+    switching();
+  });
+
+  prev.addEventListener('click', function() {
+    currentImageIndex--;
+
+    if (currentImageIndex < 0) {
+      currentImageIndex = imgs.length - 1;
+    }
+    switching();
+  });
+});
 
 function getFurniture() {
   fetch('catalog.json')
@@ -51,7 +84,7 @@ function getImagesForIndex(arr, index = 0) {
 }
 
 function openModal(e) {
-  if (e.target.localName === 'img') {
+  if (e.target.localName === 'img' && e.target.id !== 'logo') {
     fetch('catalog.json')
       .then(res => res.json())
       .then(data => {
@@ -73,6 +106,8 @@ document.onkeydown = function(e) {
     closeModal();
   }
 };
+
+function startSlide() {}
 
 (function generateMenu() {
   let menu = [
@@ -96,5 +131,5 @@ document.onkeydown = function(e) {
 })();
 
 document.addEventListener('DOMContentLoaded', getFurniture);
-window.addEventListener('click', closeModal);
 window.addEventListener('click', openModal);
+close.addEventListener('click', closeModal);

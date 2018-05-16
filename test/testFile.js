@@ -1,9 +1,9 @@
 const assert = require('chai').assert;
-const app = require('../app');
+const app = require('../server');
 
 describe('Application', function() {
-  describe('Function', function() {
-    it('getFurniture should be a function', function() {
+  describe('server', function() {
+    it('server should return an object', function() {
       assert.typeOf(app, 'object');
     });
   });
