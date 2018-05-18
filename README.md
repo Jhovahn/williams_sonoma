@@ -1,6 +1,6 @@
 # West Elm template
 
-Simple store front consuming the a JSON document to simulate a browsing experience.
+Simple store front consuming a JSON document to simulate the browsing experience.
 
 ## Getting Started
 
